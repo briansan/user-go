@@ -1,0 +1,5 @@
+WWW_HOST: blah
+MONGO_HOST: localhost:27017
+MONGO_AUTH: breadtech:catdogeggfly
+MONGO_DATABASE: users
+SECRET: gammahouseigloo

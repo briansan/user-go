@@ -1,0 +1,24 @@
+version: "3.0"
+services:
+  manageme_api:
+    build:
+      context: ../
+      dockerfile: infrastructure/Dockerfile
+    ports:
+      - "8888:8888"
+    environment:
+      - MANAGEME_SERVER_MODE=api
+      - MANAGEME_SECRET=my_secret
+      - MANAGEME_MONGO_AUTH=mdbmanageme:manageme
+      - MANAGEME_MONGO_HOST=172.17.0.1:27017
+      - MANAGEME_MONGO_DATABASE=manageme
+  
+  manageme_www:
+    build:
+      context: ../
+      dockerfile: infrastructure/Dockerfile
+    ports:
+      - "8889:8889"
+    environment:
+      - MANAGEME_SERVER_MODE=www
+      - MANAGEME_ASSETS_DIR=/etc/www/client
